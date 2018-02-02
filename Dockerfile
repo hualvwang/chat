@@ -16,7 +16,9 @@ COPY . /go/src/github.com/hualvwang/chat
 RUN set -ex \
     #&& echo -e "http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.4/main\\nhttp://mirrors.tuna.tsinghua.edu.cn/alpine/v3.4/community" > /etc/apk/repositories \
     # install dependences
-    && apk add --update-cache --virtual .build-deps \
+    # add bash
+    && apk add --update-cache bash supervisor \
+    && apk add --virtual .build-deps \
         # gcc \
         git \
         # make \
