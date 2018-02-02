@@ -27,9 +27,7 @@ RUN set -ex \
     && cd /go/src/github.com/hualvwang/chat \
     && go get -v \
     && go build -o /usr/local/open-falcon/bin/falcon-chat main.go \
-    && ls -alh /usr/local/open-falcon \
-    && mv config.tpl /usr/local/open-falcon/ \
-    && ls -alh /usr/local/open-falcon \
+    && mv config.tpl /usr/local/open-falcon/bin \
     && mv docker-entrypoint.sh / \
     && chmod +x /docker-entrypoint.sh \
     && cd /usr/local/open-falcon \
