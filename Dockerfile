@@ -6,7 +6,7 @@ WORKDIR /usr/local/open-falcon
 
 EXPOSE  4567/tcp
 
-CMD ["./chat"]
+CMD ["./bin/falcon-chat"]
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
@@ -26,8 +26,9 @@ RUN set -ex \
     \
     && cd /go/src/github.com/hualvwang/chat \
     && go get -v \
-    && go build -o bin/chat main.go \
-    && mv {bin/chat,config.tpl} /usr/local/open-falcon/ \
+    && go build -o /usr/local/open-falcon/bin/falcon-chat main.go \
+    && ls -alh /usr/local/open-falcon \
+    && mv config.tpl /usr/local/open-falcon/ \
     && ls -alh /usr/local/open-falcon \
     && mv docker-entrypoint.sh / \
     && chmod +x /docker-entrypoint.sh \
