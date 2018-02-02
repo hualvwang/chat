@@ -26,6 +26,7 @@ RUN set -ex \
     && go get -v \
     && go build -o bin/chat main.go \
     && mv bin/chat /usr/local/open-falcon / \
+    && cd /usr/local/open-falcon / \
     && ls -alh /usr/local/open-falcon / \
     && mv docker-entrypoint.sh / \
     && chmod +x /docker-entrypoint.sh \
