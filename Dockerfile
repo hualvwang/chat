@@ -17,13 +17,13 @@ RUN set -ex \
     #&& echo -e "http://mirrors.tuna.tsinghua.edu.cn/alpine/v3.4/main\\nhttp://mirrors.tuna.tsinghua.edu.cn/alpine/v3.4/community" > /etc/apk/repositories \
     # install dependences
     && apk add --update-cache --virtual .build-deps \
-        gcc \
+        # gcc \
         git \
-        make \
-        musl-dev \
+        # make \
+        # musl-dev \
     \
     && cd /go/src/github.com/hualvwang/chat \
-    && go env \
+    && go get -v \
     && go build -o bin/chat main.go \
     && mv bin/chat /usr/local/open-falcon / \
     && mv docker-entrypoint.sh / \
