@@ -23,7 +23,7 @@ configure() {
             find ./config.tpl -type f -exec sed -i "s#${search}#${replace}#g" {} \;
         fi        
     done
-    mv -f config.tpl config.conf
+    cp -f config.tpl config.conf
 }
 # replace config file with environment arguments。 
 configure
